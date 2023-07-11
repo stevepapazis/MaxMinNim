@@ -1,0 +1,32 @@
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'application'
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'minmaxnim.App'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'minmaxnim.App'
+        )
+    }
+
+    archivesBaseName = 'nim'
+
+    destinationDirectory = file('build/')
+}
+
+run {
+   standardInput = System.in
+}
